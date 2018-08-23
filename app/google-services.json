@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1059265370737",
+    "firebase_url": "https://carjacking-1f958.firebaseio.com",
+    "project_id": "carjacking-1f958",
+    "storage_bucket": "carjacking-1f958.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059265370737:android:905ef7bf26c4eea0",
+        "android_client_info": {
+          "package_name": "com.script972.carjacking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059265370737-9gmhb2usq6ifliog8kvoc1omrshfdq9g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.script972.carjacking",
+            "certificate_hash": "f1a2914dae132223ec79cd206c4fc5a2cb352617"
+          }
+        },
+        {
+          "client_id": "1059265370737-24b7jo9cqte75t800081ehl0ib443gl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEsjtY7eRjvAokMQ679lIAqjkMZ3u4py4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059265370737-24b7jo9cqte75t800081ehl0ib443gl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

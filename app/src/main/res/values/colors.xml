@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_white">#ffffff</color>
+    <color name="gradient_background_start">#27C088</color>
+    <color name="gradient_background_center">#27A9A1</color>
+    <color name="gradient_background_finish">#2467D7</color>
+    <color name="whiteOpacity">#55ffffff</color>
+    <color name="whiteOpacitySmall">#d2ffffff</color>
+    <color name="bg_button_light">#e695b6ec</color>
+
+    <color name="black">#000000</color>
+    <color name="grey">#979A9E</color>
+    <color name="grey_dark">#A4A7AA</color>
+    <color name="dark_blue">#234D87</color>
+
+    <color name="blue">#96BBE8</color>
+    <color name="main_blue">#03BBF1</color>
+    <color name="main_blue_active">#01B2E4</color>
+    <color name="navigation_view_item_color">@color/color_white</color>
+
+    <color name="title">#636363</color>
+
+    <color name="color_error_panel">#e60c0c</color>
+    <color name="color_inform_panel">#27A9A1</color>
+    <color name="color_warning_panel">#ffd54f</color>
+</resources>

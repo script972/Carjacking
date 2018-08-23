@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Carjacking</string>
+    <string name="btn_sign_up">Sign up</string>
+    <string name="hint_password_rep">Password repeat</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_email">Email</string>
+    <string name="sign_up_with_facebook">Sign up</string>
+    <string name="sign_up_with_google">Sign up</string>
+    <string name="separatet_or">OR</string>
+    <string name="txt_mock_warning">warning</string>
+    <string name="txt_version_bottom">ver</string>
+    <string name="e_invalid_email">Invalid email</string>
+
+
+</resources>

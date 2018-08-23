@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <include
+        layout="@layout/inform_panel"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/WrappingTextLayoutNotFill"
+                android:layout_marginTop="@dimen/dimen_10">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_login_dark"/>
+
+                <EditText
+                    android:id="@+id/edt_email"
+                    style="@style/LoginEditTextEmpty"
+                    android:hint="@string/hint_email"
+                    android:textColorHint="@color/grey"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/WrappingTextLayoutNotFill"
+                android:layout_marginTop="@dimen/dimen_10">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_password_dark"/>
+
+                <EditText
+                    android:id="@+id/edt_password"
+                    style="@style/LoginEditTextEmpty"
+                    android:hint="@string/hint_password"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/WrappingTextLayoutNotFill"
+                android:layout_marginTop="@dimen/dimen_10">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_password_dark"/>
+
+                <EditText
+                    android:id="@+id/edt_password_rep"
+                    style="@style/LoginEditTextEmpty"
+                    android:hint="@string/hint_password_rep"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/btn_registration_one"
+                style="@style/ButtonLight"
+                android:background="@drawable/bg_button_gradient"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:text="@string/btn_sign_up" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_15"
+                    android:layout_height="@dimen/dimen_1"
+                    android:background="@color/dark_blue"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dimen_14"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:textAllCaps="true"
+                    android:textColor="@color/dark_blue"
+                    android:fontFamily="@font/roboto_mono_regular"
+                    android:text="@string/separatet_or"/>
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_15"
+                    android:layout_height="@dimen/dimen_1"
+                    android:background="@color/dark_blue"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/signing_via_facebook"
+                style="@style/WrappingTextLayout"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@drawable/background_radius_dark">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_facebook" />
+
+                <TextView
+                    style="@style/LoginEditText"
+                    android:text="@string/sign_up_with_facebook"
+                    android:textSize="@dimen/dimen_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/signing_via_googleplus"
+                style="@style/WrappingTextLayout"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:background="@drawable/bg_button_light">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_google" />
+
+                <TextView
+                    style="@style/LoginEditText"
+                    android:text="@string/sign_up_with_google"
+                    android:textSize="@dimen/dimen_14" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
