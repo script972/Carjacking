@@ -27,4 +27,5 @@
     <color name="color_error_panel">#e60c0c</color>
     <color name="color_inform_panel">#27A9A1</color>
     <color name="color_warning_panel">#ffd54f</color>
+    <color name="color_red">#EC1B24</color>
 </resources>

@@ -4,6 +4,174 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.acitivity.LoginActivity">
+    android:background="@drawable/background_gradient">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/WrappingTextLayout">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_login"
+                    />
+
+                <EditText
+                    android:id="@+id/edt_email"
+                    style="@style/LoginEditText"
+                    android:hint="@string/hint_email" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/WrappingTextLayout"
+                android:layout_marginTop="@dimen/dimen_15">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_password"/>
+
+                <EditText
+                    android:id="@+id/edt_password"
+                    style="@style/LoginEditText"
+                    android:hint="@string/hint_password" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_password"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/text_12"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:fontFamily="@font/roboto_mono_regular"
+                android:textColor="@color/whiteOpacitySmall" />
+
+            <Button
+                android:id="@+id/btn_login"
+                style="@style/ButtonLight"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:text="@string/btn_sign_in" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_15"
+                    android:layout_height="@dimen/dimen_1"
+                    android:background="@color/whiteOpacitySmall"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dimen_14"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/roboto_mono_regular"
+                    android:textColor="@color/whiteOpacitySmall"
+                    android:text="@string/separatet_or"/>
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_15"
+                    android:layout_height="@dimen/dimen_1"
+                    android:background="@color/whiteOpacitySmall"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                style="@style/WrappingTextLayout"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@drawable/background_radius_dark">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_facebook"/>
+
+                <TextView
+                    style="@style/LoginEditText"
+                    android:textSize="@dimen/dimen_14"
+                    android:fontFamily="@font/roboto_mono_regular"
+                    android:text="@string/login_with_facebook" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                style="@style/WrappingTextLayout"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:background="@drawable/bg_button_light">
+
+                <ImageView
+                    style="@style/EditTextImage"
+                    app:srcCompat="@drawable/ic_google"/>
+
+                <TextView
+                    style="@style/LoginEditText"
+                    android:textSize="@dimen/dimen_14"
+                    android:text="@string/sign_in_with_google" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/link_registration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/roboto_mono_regular"
+                    android:text="@string/dont_have_account"
+                    android:textColor="@color/whiteOpacitySmall"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/link_registration"
+                    android:fontFamily="@font/roboto_mono_medium"
+                    android:textColor="@color/whiteOpacitySmall"
+                    />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>

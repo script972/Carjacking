@@ -1,11 +1,23 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#3F51B5</item>
+        <!-- Light Indigo -->
+        <item name="colorPrimaryDark">#3949AB</item>
+        <!-- Dark Indigo -->
+        <item name="colorAccent">#00B0FF</item>
+        <!-- Blue -->
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base">
+
+        <item name="colorPrimary">@color/gradient_background_finish</item>
+        <item name="colorPrimaryDark">@color/gradient_background_start</item>
+        <item name="windowActionBar">true</item>
+        <item name="colorControlNormal">@color/color_white</item>
+        <item name="android:windowBackground">@color/color_white</item>
     </style>
 
     <!-- Base application theme. -->
@@ -17,6 +29,10 @@
         <item name="colorControlNormal">@color/color_white</item>
         <item name="android:windowBackground">@color/color_white</item>
 
+    </style>
+
+    <style name="BackgroundApp">
+        <item name="android:background">@color/color_white</item>
     </style>
 
     <style name="CustomEditText">
@@ -33,9 +49,9 @@
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textColorHint">@color/color_white</item>
         <item name="android:textColor">@color/color_white</item>
-        <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:background" >@android:color/transparent</item>
-        <item name="android:colorAccent">@color/color_white</item>
+        <item name="android:backgroundTint" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:background" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/color_white</item>
     </style>
 
     <style name="LoginEditTextEmpty" parent="LoginEditText">
@@ -124,4 +140,6 @@
         <item name="android:textSize">@dimen/text_12</item>
     </style>
 
+
 </resources>
+

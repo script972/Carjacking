@@ -7,12 +7,21 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 import com.script972.carjacking.R;
+import com.script972.carjacking.mvp.contracts.AuthFirabaseContract;
+import com.script972.carjacking.mvp.imp.AuthFirabasePresenterImpl;
 
 
-public class SplashScreenActivity extends BaseActivity {
+public class SplashScreenActivity extends BaseActivity implements AuthFirabaseContract.View {
 
     private TextView txtVersion;
+    //TODO set false/ this true just for testing
+    private boolean access=true;
+
+    private AuthFirabaseContract.Presenter presenter = new AuthFirabasePresenterImpl(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +33,14 @@ public class SplashScreenActivity extends BaseActivity {
         waiter();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        presenter.onStart();
+    }
+
     private void initView() {
+        txtVersion = findViewById(R.id.version_show);
         try {
             PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
             txtVersion.setText(getResources().getString(R.string.txt_version_bottom) + " " + pInfo.versionName);
@@ -51,7 +67,11 @@ public class SplashScreenActivity extends BaseActivity {
      */
     private void openNextActivty() {
 
-        openLoginActivity();
+        if(access){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else
+            openLoginActivity();
 /*
         if (PrefHelper.isAuthorized(getApplicationContext())) {
             openMainActivity();
@@ -62,8 +82,33 @@ public class SplashScreenActivity extends BaseActivity {
     }
 
     private void openLoginActivity() {
-        Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+        Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public void alreadySignIn(FirebaseUser currentUser) {
+        this.access=true;
+    }
+
+    @Override
+    public void signInSuccess(FirebaseUser user) {
+
+    }
+
+    @Override
+    public void signInFailed(Task<AuthResult> task) {
+
+    }
+
+    @Override
+    public void signUpSuccess(FirebaseUser user) {
+
+    }
+
+    @Override
+    public void signUpFailed() {
+
     }
 }

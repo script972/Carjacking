@@ -1,21 +1,20 @@
 package com.script972.carjacking.ui.acitivity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.script972.carjacking.R;
+import com.script972.carjacking.helpers.ValidatorHelper;
+import com.script972.carjacking.mvp.contracts.AuthFirabaseContract;
+import com.script972.carjacking.mvp.imp.AuthFirabasePresenterImpl;
 
-public class SignUpActivity extends BaseActivity {
+public class SignUpActivity extends BaseActivity implements AuthFirabaseContract.View{
 
     //outlets
     private Button btnSignUp;
@@ -23,14 +22,15 @@ public class SignUpActivity extends BaseActivity {
     private EditText edtPassword;
     private EditText edtPasswordRep;
 
-    private FirebaseAuth mAuth;
+    private AuthFirabaseContract.Presenter presenter = new AuthFirabasePresenterImpl(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        presenter.onCreate();
 
-        mAuth = FirebaseAuth.getInstance();
+
 
         initView();
     }
@@ -47,39 +47,28 @@ public class SignUpActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
-
-    private void updateUI(FirebaseUser currentUser) {
-        if(currentUser==null)
-            return;
-        Toast.makeText(this, "user="+currentUser.getPhoneNumber()+" ", Toast.LENGTH_LONG).show();
+        presenter.onStart();
 
     }
 
 
     private void registration() {
+        if(!validateFields()){
+            return;
+        }
+
+        presenter.signUp(edtEmail.getText().toString(), edtPassword.getText().toString());
 
 
-        mAuth.createUserWithEmailAndPassword(edtEmail.getText().toString(), edtPassword.getText().toString())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            Log.i("denLog", task.getException()+"");
-                            updateUI(null);
-                        }
+    }
 
-                    }
-                });
+    private boolean validateFields() {
+        if(ValidatorHelper.validateEmail(edtEmail, this) && ValidatorHelper.validatePassword(edtPassword, this) &&
+                ValidatorHelper.validatePassword(edtPasswordRep, this)){
+            return edtPassword.getText().toString().equals(edtPasswordRep.getText().toString());
+        } else{
+            return false;
+        }
 
     }
 
@@ -94,4 +83,29 @@ public class SignUpActivity extends BaseActivity {
     };
 
 
+    @Override
+    public void alreadySignIn(FirebaseUser currentUser) {
+
+    }
+
+    @Override
+    public void signInSuccess(FirebaseUser user) {
+
+    }
+
+    @Override
+    public void signInFailed(Task<AuthResult> task) {
+        Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void signUpSuccess(FirebaseUser user) {
+        Toast.makeText(this, user.getEmail(), Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void signUpFailed() {
+
+    }
 }
