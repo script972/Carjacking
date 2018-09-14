@@ -16,18 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/card_image"
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/splash_logo" />
+            android:layout_height="148dp"
+            app:liteMode="true"
+            app:mapType="normal" />
 
         <TextView
             android:id="@+id/card_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/card_image"
+            android:layout_alignBottom="@+id/map"
             android:layout_marginLeft="@dimen/dimen_16"
             tools:text="@string/test"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -37,7 +38,7 @@
             android:id="@+id/card_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_image"
+            android:layout_below="@+id/map"
             android:layout_marginLeft="@dimen/dimen_16"
             android:layout_marginTop="@dimen/dimen_16"
             android:layout_marginBottom="@dimen/dimen_16"
@@ -55,7 +56,7 @@
             android:layout_below="@+id/card_text"
             style="?android:attr/borderlessButtonStyle"
             android:textColor="?attr/colorPrimary"
-            android:text="Action" />
+            android:text="@string/txt_send_request_to_ride" />
 
         <ImageButton
             android:id="@+id/share_button"

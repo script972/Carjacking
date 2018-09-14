@@ -19,6 +19,7 @@
     <string name="link_registration">SignUp</string>
     <string name="test">Test</string>
     <string name="action_settings">Settings</string>
+    <string name="txt_send_request_to_ride">hijack</string>
 
 
     <string-array name="places">
