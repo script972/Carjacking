@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.script972.carjacking.R;
+import com.script972.carjacking.callbacks.RoadCallbacks;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -58,26 +59,6 @@ public class Main2Activity extends AppCompatActivity {
         final FirebaseUser user = mAuth.getCurrentUser();
         Log.i("denLog", "onCreate");
 
-
-       /* FirebaseListOptions<String> options = new FirebaseListOptions.Builder<String>()
-                .setQuery(myRef.child(user.getUid())
-                        .child("Tasks"), String.class).setLayout(android.R.layout.simple_list_item_1)
-                .build();
-        ListAdapter adapter =new FirebaseListAdapter<String>(options) {
-            @Override
-            protected void populateView(View v, String model, int position) {
-                ((TextView)v.findViewById(android.R.id.text1)).setText(model);
-
-            }
-
-            @Override
-            public void onError(@NonNull DatabaseError error) {
-                super.onError(error);
-                Log.i("denLog", error.getMessage());
-                Log.i("denLog", error.getDetails());
-            }
-        };
-        listusertask.setAdapter(adapter);*/
 
 
         myRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
@@ -115,4 +96,7 @@ public class Main2Activity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_expandable_list_item_1, DiscrTasks);
         listusertask.setAdapter(adapter);
     }
+
+
+
 }

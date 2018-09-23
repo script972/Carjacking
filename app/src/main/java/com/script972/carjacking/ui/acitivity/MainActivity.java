@@ -1,5 +1,6 @@
 package com.script972.carjacking.ui.acitivity;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -20,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.script972.carjacking.R;
+import com.script972.carjacking.callbacks.RoadCallbacks;
 import com.script972.carjacking.ui.adapter.TabsAdapter;
 import com.script972.carjacking.ui.fragments.CardContentFragment;
 import com.script972.carjacking.ui.fragments.ListContentFragment;
@@ -80,8 +82,8 @@ public class MainActivity extends BaseActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Hello Snackbar!",
-                        Snackbar.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, AddTripActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -89,9 +91,9 @@ public class MainActivity extends BaseActivity {
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
         TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ListContentFragment(), "List");
-        adapter.addFragment(new TileContentFragment(), "Tile");
-        adapter.addFragment(new CardContentFragment(), "Card");
+        adapter.addFragment(new CardContentFragment(), getResources().getString(R.string.title_fragment_trips));
+        adapter.addFragment(new ListContentFragment(), getResources().getString(R.string.title_history));
+        adapter.addFragment(new TileContentFragment(), getResources().getString(R.string.title_approvement));
         viewPager.setAdapter(adapter);
     }
 
@@ -101,4 +103,6 @@ public class MainActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
+
 }

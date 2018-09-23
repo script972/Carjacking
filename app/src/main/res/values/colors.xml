@@ -28,4 +28,5 @@
     <color name="color_inform_panel">#27A9A1</color>
     <color name="color_warning_panel">#ffd54f</color>
     <color name="color_red">#EC1B24</color>
+    <color name="opacity_black">#8c272525</color>
 </resources>

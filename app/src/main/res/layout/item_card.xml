@@ -20,64 +20,57 @@
         <com.google.android.gms.maps.MapView
             android:id="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="148dp"
+            android:layout_height="188dp"
             app:liteMode="true"
             app:mapType="normal" />
 
-        <TextView
-            android:id="@+id/card_title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/map"
-            android:layout_marginLeft="@dimen/dimen_16"
-            tools:text="@string/test"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/color_white" />
+            android:orientation="horizontal"
+            android:background="@color/opacity_black">
 
-        <TextView
-            android:id="@+id/card_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/map"
-            android:layout_marginLeft="@dimen/dimen_16"
-            android:layout_marginTop="@dimen/dimen_16"
-            android:layout_marginBottom="@dimen/dimen_16"
-            android:layout_marginRight="@dimen/dimen_16"
-            tools:text="@string/test"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:textColor="@color/grey_dark"
-            android:textSize="@dimen/text_16" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/places"
+                android:layout_marginTop="@dimen/dimen_2"
+                android:layout_marginLeft="@dimen/dimen_2"/>
+
+            <TextView
+                android:id="@+id/card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:layout_marginBottom="@dimen/dimen_8"
+                tools:text="@string/test"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/color_white" />
+        </LinearLayout>
+
+
 
         <Button
             android:id="@+id/action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_text"
+            android:layout_below="@+id/map"
             style="?android:attr/borderlessButtonStyle"
             android:textColor="?attr/colorPrimary"
             android:text="@string/txt_send_request_to_ride" />
 
         <ImageButton
-            android:id="@+id/share_button"
-            android:layout_width="@dimen/dimen_60"
-            android:layout_height="@dimen/dimen_60"
-            android:layout_marginRight="@dimen/dimen_16"
-            app:srcCompat="@drawable/share"
-            android:layout_below="@+id/card_text"
+            android:id="@+id/btn_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/details"
+            android:layout_below="@+id/map"
             android:layout_alignParentRight="true"
             style="?android:attr/borderlessButtonStyle"
             android:tint="@color/grey_dark" />
 
-        <ImageButton
-            android:id="@+id/favorite_button"
-            android:layout_width="@dimen/dimen_60"
-            android:layout_height="@dimen/dimen_60"
-            android:layout_marginRight="@dimen/dimen_16"
-            app:srcCompat="@drawable/share"
-            android:layout_below="@+id/card_text"
-            android:layout_toLeftOf="@id/share_button"
-            style="?android:attr/borderlessButtonStyle"
-            android:tint="@color/grey_dark" />
+
     </RelativeLayout>
 </android.support.v7.widget.CardView>

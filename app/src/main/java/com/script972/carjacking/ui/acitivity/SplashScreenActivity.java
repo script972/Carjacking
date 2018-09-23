@@ -7,10 +7,12 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
 import com.script972.carjacking.R;
+import com.script972.carjacking.helpers.PrefHelper;
 import com.script972.carjacking.mvp.contracts.AuthFirabaseContract;
 import com.script972.carjacking.mvp.imp.AuthFirabasePresenterImpl;
 
@@ -19,7 +21,7 @@ public class SplashScreenActivity extends BaseActivity implements AuthFirabaseCo
 
     private TextView txtVersion;
     //TODO set false/ this true just for testing
-    private boolean access=true;
+    private boolean access=false;
 
     private AuthFirabaseContract.Presenter presenter = new AuthFirabasePresenterImpl(this);
 
@@ -27,15 +29,19 @@ public class SplashScreenActivity extends BaseActivity implements AuthFirabaseCo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
         initView();
-
         waiter();
+        stub();
+    }
+
+    private void stub() {
+        PrefHelper.setMapPosition(getApplicationContext(), new LatLng(46.963455, 32.072926));
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
         presenter.onStart();
     }
 

@@ -10,26 +10,51 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.script972.carjacking.R;
+import com.script972.carjacking.callbacks.RoadCallbacks;
+import com.script972.carjacking.model.Road;
+import com.script972.carjacking.repository.RoadRepository;
+import com.script972.carjacking.repository.impl.RoadRepositoryImpl;
 import com.script972.carjacking.ui.adapter.ContentAdapter;
 
+import java.util.List;
+
 public class CardContentFragment extends Fragment {
+    private RecyclerView recyclerView;
+    private  ContentAdapter adapter;
+    private RoadRepository roadRepository;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(
+        recyclerView = (RecyclerView) inflater.inflate(
                 R.layout.recycler_view, container, false);
+        roadRepository = new RoadRepositoryImpl();
+        roadRepository.subscibeToAllRoad(roadCallbacks);
 
-        ContentAdapter adapter = new ContentAdapter(recyclerView.getContext(), getChildFragmentManager());
-        recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return recyclerView;
 
-       // return inflater.inflate(R.layout.item_card, null);
     }
+
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
     }
+
+
+    //Callbacks
+    private final RoadCallbacks roadCallbacks = new RoadCallbacks() {
+        @Override
+        public void dataChanges(List<Road> road) {
+            if(adapter==null){
+                adapter = new ContentAdapter(getContext(), getChildFragmentManager(), road);
+                recyclerView.setAdapter(adapter);
+            } else {
+                adapter.setRoads(road);
+                adapter.notifyDataSetChanged();
+            }
+        }
+    };
 }
